@@ -1,0 +1,11 @@
+
+
+
+.Main_layout_area{
+    display: flex;
+    background-color: teal;
+    justify-content: space-evenly;
+    height: 100vh;
+ 
+}
+

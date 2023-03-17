@@ -1,0 +1,44 @@
+.form_register_layout_main{
+    width: 100%;
+    height: 50vw;
+    background-color: tomato;
+}
+
+.form_register_layout_main h1{
+    display: flex;
+    justify-content: center;
+}
+
+.form_register_layout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: indigo;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+
+}
+
+.form_register_layout h2 {
+    padding: 2rem 0;
+}
+
+
+.message {
+    margin-top: 16px;
+    padding: 8px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .message.success {
+    background-color: green;
+    color: white;
+  }
+  
+  .message.error {
+    background-color: red;
+    color: white;
+  }
