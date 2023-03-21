@@ -5,6 +5,7 @@ import ProtectedPage from "./components/ProtectedPage";
 import MainLayoutComponent from "./components/MainLayoutComponent";
 import UserForm from "./components/Form_register";
 import LoginForm from "./components/Form_login";
+import JobPosting from './components/JobPosting'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/protected/*" element={<ProtectedPage />} />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/vagas" element={<JobPosting />} />
         </Routes>
       </Router>
     </div>

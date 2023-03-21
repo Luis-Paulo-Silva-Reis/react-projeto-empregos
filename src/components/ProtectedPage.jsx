@@ -38,6 +38,10 @@ const ProtectedPage = () => {
       <br />
       <Link to="/">Back to Home</Link>
       <Outlet />
+
+      <Link to="/vagas">
+        <button>Ver Vagas</button>
+      </Link>
     </div>
   );
 };
