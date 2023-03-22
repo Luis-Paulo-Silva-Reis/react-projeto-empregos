@@ -1,0 +1,47 @@
+.toggle-button-button {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: auto;
+  background-color: teal;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-button-button p {
+  width: 100px;
+  background-color: tomato;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+
+
+.toggle-button {
+  width: 50px;
+  position: relative;
+
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.toggle-button:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 40%;
+  height: calc(100% - 4px);
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.toggle-button.on:before {
+  transform: translateX(100%);
+}

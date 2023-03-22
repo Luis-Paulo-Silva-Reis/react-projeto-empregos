@@ -3,6 +3,7 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import Main from "./Main";
 import Aside from "./Aside";
+import ToggleForm from './FormToggle'
 
 import "./Main_Layout_component.css";
 
@@ -17,6 +18,7 @@ function MainLayoutComponent() {
         <Main>opa ssss</Main>
       </div>
       <Footer />
+      <ToggleForm></ToggleForm>
     </div>
   );
 }
