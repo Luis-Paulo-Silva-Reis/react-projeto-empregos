@@ -16,7 +16,7 @@ function UserForm() {
       password,
     };
 
-    fetch("http://localhost:3000/register", {
+    fetch("http://35.173.100.192:3000/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,10 +31,16 @@ function UserForm() {
         }
       })
       .then((data) => {
-        setMessage({ text: "Usuário cadastrado com sucesso", status: "success" });
+        setMessage({
+          text: "Usuário cadastrado com sucesso",
+          status: "success",
+        });
       })
       .catch((error) => {
-        setMessage({ text: "Erro ao cadastrar usuário: " + error.message, status: "error" });
+        setMessage({
+          text: "Erro ao cadastrar usuário: " + error.message,
+          status: "error",
+        });
       });
 
     setName("");
@@ -44,7 +50,6 @@ function UserForm() {
 
   return (
     <form onSubmit={handleSubmit} className="form_register_layout_main">
-      
       <div className="form_register_layout">
         <h2>Formulario de cadastro</h2>
         <label>
@@ -75,17 +80,10 @@ function UserForm() {
         </label>
         <br />
         <button type="submit">Cadastrar</button>
-      {message.text && (
-        <div className={`message ${message.status}`}>
-          {message.text}
-        </div>
-      )}
-        
-        
+        {message.text && (
+          <div className={`message ${message.status}`}>{message.text}</div>
+        )}
       </div>
-
-
-  
     </form>
   );
 }

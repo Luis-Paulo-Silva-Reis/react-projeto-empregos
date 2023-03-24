@@ -16,7 +16,7 @@ const ProtectedPage = () => {
             Authorization: token,
           },
         });
-        const response = await api.get("http://localhost:3000/protected");
+        const response = await api.get("http://35.173.100.192:3000/protected");
         setData(response.data);
       } catch (error) {
         console.error(error);

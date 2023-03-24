@@ -1,37 +1,33 @@
-import React, { Component } from "react";
-import Form1 from "./Form1";
-import Form2 from "./Form2";
+import React, { useState } from "react";
+import LoginForm from "./Form_login";
+import UserForm from "./Form_register";
 import "./FormToggle.css";
 
-class ToggleForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { showForm1: true };
-    this.handleToggle = this.handleToggle.bind(this);
-  }
+function ToggleForm() {
+  const [showForm1, setShowForm1] = useState(true);
 
-  handleToggle() {
-    this.setState((prevState) => ({ showForm1: !prevState.showForm1 }));
-  }
+  const handleToggle = () => {
+    setShowForm1((prevState) => !prevState);
+  };
 
-  render() {
-    const { showForm1 } = this.state;
-    return (
-      <div className="toggle-button-button">
+  return (
+    <div className="toggle-button-button">
+      <div className="row">
         <div>
-          <p>sign in </p>
-          <p> sign up</p>
+          <p>log in</p>
+          <p>sign up</p>
         </div>
+
         <button
-          onClick={this.handleToggle}
+          onClick={handleToggle}
           className={`toggle-button ${showForm1 ? "" : "on"}`}
-        >
-          Toggle Form
-        </button>
-        <div>{showForm1 ? <Form1 /> : <Form2 />}</div>
+        ></button>
+        <br />
       </div>
-    );
-  }
+      <div className="form-container">{showForm1 ? <LoginForm /> : <UserForm />}</div>
+    </div>
+  );
 }
 
 export default ToggleForm;
+  
