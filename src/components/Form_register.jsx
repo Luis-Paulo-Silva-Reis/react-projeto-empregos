@@ -1,4 +1,4 @@
-import "./Form_register.css";
+import "../styles/Form_register.css";
 import React, { useState } from "react";
 
 function UserForm() {
@@ -16,7 +16,7 @@ function UserForm() {
       password,
     };
 
-    fetch("http://35.173.100.192:3000/register", {
+    fetch("http://34.232.202.87:3000/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

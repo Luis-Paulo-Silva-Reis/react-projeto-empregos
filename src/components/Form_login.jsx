@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import "./Form_login.css";
+import "../styles/Form_login.css";
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +23,7 @@ const LoginForm = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://35.173.100.192:3000/auth", {
+      const response = await axios.post("http://34.232.202.87:3000/auth", {
         email,
         password,
       });
@@ -48,7 +48,7 @@ const LoginForm = () => {
     };
     try {
       const response = await axios.get(
-        "http://35.173.100.192:3000/protected",
+        "http://34.232.202.87:3000/protected",
         config
       );
       // handle response and redirect to protected route

@@ -5,7 +5,7 @@ import Main from "./Main";
 import Aside from "./Aside";
 import ToggleForm from './FormToggle'
 
-import "./Main_Layout_component.css";
+import "../styles/Main_Layout_component.css";
 
 function MainLayoutComponent() {
   return (

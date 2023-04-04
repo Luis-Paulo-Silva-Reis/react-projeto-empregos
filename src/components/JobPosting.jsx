@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import '../styles/JobPosting.css'
 
 const JobPosting = () => {
   const [titulo, setTitulo] = useState("");
@@ -12,7 +13,7 @@ const JobPosting = () => {
     try {
       const token = Cookies.get("Authorization"); // Obtenha o token dos cookies ou localStorage
       const response = await axios.post(
-        "http://35.173.100.192:3000/vagas",
+        "http://34.232.202.87:3000/jobsposting",
         { titulo, descricao },
         {
           headers: {
@@ -27,7 +28,7 @@ const JobPosting = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id="jobpostingform">
       <div>
         <label htmlFor="titulo">Título:</label>
         <input

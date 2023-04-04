@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import "./App.css";
+import "./styles/App.css";
 import ProtectedPage from "./components/ProtectedPage";
 import MainLayoutComponent from "./components/MainLayoutComponent";
 import UserForm from "./components/Form_register";
 import LoginForm from "./components/Form_login";
 import JobPosting from './components/JobPosting'
+import CardList from "./components/CardList";
 
 function App() {
   return (
@@ -16,11 +17,12 @@ function App() {
           <Route path="/protected/*" element={<ProtectedPage />} />
           <Route path="/register" element={<UserForm />} />
           <Route path="/login" element={<LoginForm />} />
-          <Route path="/vagas" element={<JobPosting />} />
+          <Route path="/jobsposting" element={<JobPosting />} />
+          <Route path="/jobs" element={<CardList />} />
+
         </Routes>
       </Router>
     </div>
   );
 }
-
 export default App;

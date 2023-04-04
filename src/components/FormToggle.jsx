@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LoginForm from "./Form_login";
 import UserForm from "./Form_register";
-import "./FormToggle.css";
+import "../styles/FormToggle.css";
 
 function ToggleForm() {
   const [showForm1, setShowForm1] = useState(true);

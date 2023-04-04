@@ -16,7 +16,7 @@ const ProtectedPage = () => {
             Authorization: token,
           },
         });
-        const response = await api.get("http://35.173.100.192:3000/protected");
+        const response = await api.get("http://34.232.202.87:3000/protected");
         setData(response.data);
       } catch (error) {
         console.error(error);
@@ -39,9 +39,14 @@ const ProtectedPage = () => {
       <Link to="/">Back to Home</Link>
       <Outlet />
 
-      <Link to="/vagas">
-        <button>Ver Vagas</button>
+      <Link to="/jobsposting">
+        <button>Registrar vagas</button>
       </Link>
+
+      <Link to="/jobs">
+        <button>Ver vagas</button>
+      </Link>
+
     </div>
   );
 };
