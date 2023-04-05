@@ -1,56 +1,53 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const FilterAndSort = ({ data, onFilterAndSort }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [sortOption, setSortOption] = useState('');
-  const [filteredAndSortedData, setFilteredAndSortedData] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [sortType, setSortType] = useState("asc");
 
-  useEffect(() => {
-    if (data) {
-      const filteredData = data.filter(
-        (item) =>
-          item.title &&
-          item.title.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+  const handleFilterTextChange = (event) => {
+    const text = event.target.value;
+    setSearchText(text);
 
-      console.log('Dados filtrados:', filteredData);
-
-      const sortedData = [...filteredData].sort((a, b) => {
-        if (sortOption === 'asc') {
-          return a.title.localeCompare(b.title);
-        } else if (sortOption === 'desc') {
-          return b.title.localeCompare(a.title);
-        }
-        return 0;
-      });
-
-      console.log('Dados filtrados e ordenados:', sortedData);
-
-      if (
-        JSON.stringify(filteredAndSortedData) !== JSON.stringify(sortedData)
-      ) {
-        setFilteredAndSortedData(sortedData);
-        onFilterAndSort(sortedData);
-      }
+    if (text === "") {
+      onFilterAndSort(data);
+      return;
     }
-  }, [searchTerm, sortOption, data, filteredAndSortedData, onFilterAndSort]);
+
+    const filteredData = data.filter(
+      (item) =>
+        item.titulo.toLowerCase().includes(text.toLowerCase()) ||
+        item.descricao.toLowerCase().includes(text.toLowerCase())
+    );
+    onFilterAndSort(filteredData);
+  };
+
+  const handleSortTypeChange = (event) => {
+    const type = event.target.value;
+    setSortType(type);
+
+    const sortedData = data.sort((a, b) =>
+      type === "asc"
+        ? a.titulo.localeCompare(b.titulo)
+        : b.titulo.localeCompare(a.titulo)
+    );
+    onFilterAndSort(sortedData);
+  };
 
   return (
     <div className="filter-and-sort">
       <input
         type="text"
-        placeholder="Filtrar vagas..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        value={searchText}
+        onChange={handleFilterTextChange}
+        placeholder="Filtrar por título ou descrição"
       />
-      <select
-        value={sortOption}
-        onChange={(e) => setSortOption(e.target.value)}
-      >
-        <option value="">Ordenar por...</option>
-        <option value="asc">Título (A-Z)</option>
-        <option value="desc">Título (Z-A)</option>
-      </select>
+      <label>
+        Ordenar por título:
+        <select value={sortType} onChange={handleSortTypeChange}>
+          <option value="asc">A-Z</option>
+          <option value="desc">Z-A</option>
+        </select>
+      </label>
     </div>
   );
 };

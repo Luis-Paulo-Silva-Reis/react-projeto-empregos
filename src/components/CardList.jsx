@@ -4,7 +4,7 @@ import Card from "./Card";
 import FilterAndSort from "./FilterAndSort";
 
 const CardList = () => {
-  const { data, page, setPage, totalPages, isLoading, error, fetchData } =
+  const { data: originalData, page, setPage, totalPages, isLoading, error, fetchData } =
     useFetch(
       "http://34.232.202.87:3000/jobs",
       1,
@@ -18,8 +18,8 @@ const CardList = () => {
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
-    setFilteredData(data);
-  }, [data]);
+    setFilteredData(originalData);
+  }, [originalData]);
 
   const handleFilterAndSort = (updatedData) => {
     setFilteredData(updatedData);
@@ -36,13 +36,13 @@ const CardList = () => {
     return <div>Erro ao buscar dados: {error}</div>;
   }
 
-  if (!data) {
+  if (!originalData) {
     return <div>Carregando...</div>;
   }
 
   return (
     <div>
-      <FilterAndSort data={data} onFilterAndSort={handleFilterAndSort} />
+      <FilterAndSort data={originalData} onFilterAndSort={handleFilterAndSort} />
       <div className="card-list">
         {filteredData.map((item, index) => (
           <Card key={index} item={item} index={index} />
