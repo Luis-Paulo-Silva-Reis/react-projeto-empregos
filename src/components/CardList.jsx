@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import useFetch from "./UseFetch";
 import Card from "./Card";
 import FilterAndSort from "./FilterAndSort";
+import Paginate from "react-paginate";
 
 const CardList = () => {
   const { data: originalData, page, setPage, totalPages, isLoading, error, fetchData } =
@@ -25,13 +26,6 @@ const CardList = () => {
     setFilteredData(updatedData);
   };
 
-  const loadMore = () => {
-    if (page < totalPages) {
-      setPage((prevPage) => prevPage + 1);
-      fetchData();
-    }
-  };
-
   if (error) {
     return <div>Erro ao buscar dados: {error}</div>;
   }
@@ -49,10 +43,19 @@ const CardList = () => {
         ))}
       </div>
       {isLoading && <div>Carregando...</div>}
-      {page < totalPages && (
-        <button onClick={loadMore} className="load-more-button">
-          Carregar mais
-        </button>
+      {!isLoading && (
+        <Paginate
+          previousLabel={'Anterior'}
+          nextLabel={'Próximo'}
+          breakLabel={'...'}
+          pageCount={totalPages}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={({ selected }) => setPage(selected + 1)}
+          containerClassName={'pagination'}
+          activeClassName={'active'}
+          forcePage={page - 1}
+        />
       )}
     </div>
   );

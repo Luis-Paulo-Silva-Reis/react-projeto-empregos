@@ -15,7 +15,7 @@ const useFetch = (url, initialPage, options = {}) => {
     setIsLoading(true);
     setError(null);
 
-    const cacheKey = `cache_${url}_${page}`;
+    const cacheKey = `cache_${url}`; // const cacheKey = `cache_${url}+_${page}`;
     console.log('Cache key:', cacheKey);
 
     const cachedData = useCache ? localStorage.getItem(cacheKey) : null;
