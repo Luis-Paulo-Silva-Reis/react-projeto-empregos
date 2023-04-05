@@ -15,7 +15,7 @@ const useFetch = (url, initialPage, options = {}) => {
     setIsLoading(true);
     setError(null);
 
-    const cacheKey = `cache_${url}`; // const cacheKey = `cache_${url}+_${page}`;
+    const cacheKey = `cache_${url}`;
     console.log('Cache key:', cacheKey);
 
     const cachedData = useCache ? localStorage.getItem(cacheKey) : null;
@@ -23,22 +23,14 @@ const useFetch = (url, initialPage, options = {}) => {
 
     if (cachedData) {
       const parsedData = JSON.parse(cachedData);
-      if (Array.isArray(parsedData)) {
-        setData(parsedData);
-      } else if (parsedData.items) {
-        setData(parsedData.items);
-        setTotalPages(parsedData.totalPages);
-      }
+      setData(parsedData);
       setIsLoading(false);
     } else {
       try {
-        const response = await axios.get(`${url}?page=${page}`);
+        const response = await axios.get(url);
         console.log('API response:', response.data);
         if (Array.isArray(response.data)) {
           setData(response.data);
-        } else if (response.data && response.data.items && response.data.totalPages) {
-          setData(response.data.items);
-          setTotalPages(response.data.totalPages);
         } else {
           console.error('Unexpected API response:', response.data);
         }
@@ -62,7 +54,7 @@ const useFetch = (url, initialPage, options = {}) => {
 
   useEffect(() => {
     fetchData();
-  }, [url, page, retries, retryDelay, useCache]);
+  }, [url, retries, retryDelay, useCache]);
 
   return { data, page, setPage, totalPages, isLoading, error, fetchData };
 };
