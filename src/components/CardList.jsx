@@ -3,7 +3,7 @@ import useFetch from "./UseFetch";
 import Card from "./Card";
 import FilterAndSort from "./FilterAndSort";
 import Paginate from "react-paginate";
-import '../styles/CardList.css'
+import "../styles/CardList.css";
 
 const CardList = () => {
   const {
@@ -47,30 +47,33 @@ const CardList = () => {
 
   return (
     <div>
-    <FilterAndSort data={originalData} onFilterAndSort={handleFilterAndSort} />
-    <div className="card-list">
-      {paginatedData.map((item, index) => (
-        <Card key={index} item={item} index={index} />
-      ))}
-    </div>
-    {isLoading && <div>Carregando...</div>}
-    {!isLoading && (
-      <Paginate
-        previousLabel={'Anterior'}
-        nextLabel={'Próximo'}
-        breakLabel={'...'}
-        pageCount={totalPages}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={5}
-        onPageChange={({ selected }) => setPage(selected + 1)}
-        containerClassName={'pagination'}
-        previousClassName={'button'}
-        nextClassName={'button'}
-        activeClassName={'activeButton'}
-        forcePage={page - 1}
+      <FilterAndSort
+        data={originalData}
+        onFilterAndSort={handleFilterAndSort}
       />
-    )}
-  </div>
+      <div className="card-list">
+        {paginatedData.map((item, index) => (
+          <Card key={index} item={item} index={index} />
+        ))}
+      </div>
+      {isLoading && <div>Carregando...</div>}
+      {!isLoading && (
+        <Paginate
+          previousLabel={"Anterior"}
+          nextLabel={"Próximo"}
+          breakLabel={"..."}
+          pageCount={totalPages}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={({ selected }) => setPage(selected + 1)}
+          containerClassName={"pagination"}
+          previousClassName={"button"}
+          nextClassName={"button"}
+          activeClassName={"activeButton"}
+          forcePage={page - 1}
+        />
+      )}
+    </div>
   );
 };
 
