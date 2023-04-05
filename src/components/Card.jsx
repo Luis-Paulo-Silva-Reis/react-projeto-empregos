@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Card = ({ item, index }) => (
   <div className="card" key={index}>
@@ -6,6 +6,5 @@ const Card = ({ item, index }) => (
     <p>{item.descricao}</p>
   </div>
 );
-
 
 export default Card;

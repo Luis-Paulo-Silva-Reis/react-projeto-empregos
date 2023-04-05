@@ -1,23 +1,36 @@
-import React, { useCallback, useEffect } from 'react';
-import useFetch from './UseFetch';
-import Card from './Card';
+import React, { useState, useEffect } from "react";
+import useFetch from "./UseFetch";
+import Card from "./Card";
+import FilterAndSort from "./FilterAndSort";
 
 const CardList = () => {
-  const { data, page, setPage, totalPages, isLoading, error, fetchData } = useFetch('http://localhost:8079/jobs', 1, { retries: 3, retryDelay: 1000 });
-  console.log('CardList data:', data);
+  const { data, page, setPage, totalPages, isLoading, error, fetchData } =
+    useFetch(
+      "http://34.232.202.87:3000/jobs",
+      1,
+      {
+        retries: 3,
+        retryDelay: 1000,
+      },
+      10
+    );
 
-  const handleScroll = useCallback(() => {
-    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-    if (page < totalPages) {
-      setPage(prevPage => prevPage + 1);
-      fetchData();
-    }
-  }, [page, totalPages, setPage, fetchData]);
+  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [handleScroll]);
+    setFilteredData(data);
+  }, [data]);
+
+  const handleFilterAndSort = (updatedData) => {
+    setFilteredData(updatedData);
+  };
+
+  const loadMore = () => {
+    if (page < totalPages) {
+      setPage((prevPage) => prevPage + 1);
+      fetchData();
+    }
+  };
 
   if (error) {
     return <div>Erro ao buscar dados: {error}</div>;
@@ -29,12 +42,18 @@ const CardList = () => {
 
   return (
     <div>
+      <FilterAndSort data={data} onFilterAndSort={handleFilterAndSort} />
       <div className="card-list">
-    {data.map((item, index) => (
-      <Card key={index} item={item} index={index} />
-    ))}
-  </div>
+        {filteredData.map((item, index) => (
+          <Card key={index} item={item} index={index} />
+        ))}
+      </div>
       {isLoading && <div>Carregando...</div>}
+      {page < totalPages && (
+        <button onClick={loadMore} className="load-more-button">
+          Carregar mais
+        </button>
+      )}
     </div>
   );
 };
