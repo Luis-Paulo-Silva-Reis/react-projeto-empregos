@@ -1,46 +1,60 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 
 const FilterAndSort = ({ data, onFilterAndSort }) => {
-  const [searchText, setSearchText] = useState("");
-  const [sortType, setSortType] = useState("asc");
+  const [filterText, setFilterText] = useState("");
+  const [sortedAsc, setSortedAsc] = useState(true);
 
   const handleFilterTextChange = (event) => {
-    const text = event.target.value;
-    setSearchText(text);
+    const { value } = event.target;
+    setFilterText(value);
 
-    if (text === "") {
-      onFilterAndSort(data);
-      return;
-    }
-
-    const filteredData = data.filter(
-      (item) =>
-        item.titulo.toLowerCase().includes(text.toLowerCase()) ||
-        item.descricao.toLowerCase().includes(text.toLowerCase())
+    const filteredData = data.filter((item) =>
+      item.titulo.toLowerCase().includes(value.toLowerCase())
     );
+
     onFilterAndSort(filteredData);
   };
+
+  const handleSort = () => {
+    const sortedData = data.sort((a, b) => {
+      if (a.titulo.toLowerCase() < b.titulo.toLowerCase()) {
+        return sortedAsc ? -1 : 1;
+      }
+      if (a.titulo.toLowerCase() > b.titulo.toLowerCase()) {
+        return sortedAsc ? 1 : -1;
+      }
+      return 0;
+    });
+    setSortedAsc(!sortedAsc);
+    onFilterAndSort(sortedData);
+  };
+
+  const [sortType, setSortType] = useState("asc");
 
   const handleSortTypeChange = (event) => {
     const type = event.target.value;
     setSortType(type);
 
-    const sortedData = data.sort((a, b) =>
-      type === "asc"
-        ? a.titulo.localeCompare(b.titulo)
-        : b.titulo.localeCompare(a.titulo)
-    );
+    const sortedData = data
+      .slice()
+      .sort((a, b) =>
+        type === "asc"
+          ? a.titulo.localeCompare(b.titulo)
+          : b.titulo.localeCompare(a.titulo)
+      );
     onFilterAndSort(sortedData);
   };
 
   return (
-    <div className="filter-and-sort">
-      <input
-        type="text"
-        value={searchText}
-        onChange={handleFilterTextChange}
-        placeholder="Filtrar por título ou descrição"
-      />
+    <div>
+      <label>
+        Filtro:
+        <input
+          type="text"
+          value={filterText}
+          onChange={handleFilterTextChange}
+        />
+      </label>
       <label>
         Ordenar por título:
         <select value={sortType} onChange={handleSortTypeChange}>
