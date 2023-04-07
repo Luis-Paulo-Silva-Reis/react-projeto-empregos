@@ -5,30 +5,25 @@ import ProtectedPage from "./components/ProtectedPage";
 import MainLayoutComponent from "./components/MainLayoutComponent";
 import UserForm from "./components/Form_register";
 import LoginForm from "./components/Form_login";
-import JobPosting from './components/JobPosting'
+import JobPosting from "./components/JobPosting";
 import CardList from "./components/CardList";
 import { UserProvider } from "./components/UserContext";
-
 
 function App() {
   return (
     <div className="App">
       <UserProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<MainLayoutComponent />} />
-          <Route path="/protected/*" element={<ProtectedPage />} />
-          <Route path="/register" element={<UserForm />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/jobsposting" element={<JobPosting />} />
-          <Route path="/jobs/*" element={<CardList />} />
-    
-        </Routes>
-      </Router>
+        <Router>
+          <Routes>
+            <Route path="/" element={<MainLayoutComponent />} />
+            <Route path="/protected/*" element={<ProtectedPage />} />
+            <Route path="/register" element={<UserForm />} />
+            <Route path="/login" element={<LoginForm> </LoginForm>} />
+            <Route path="/jobsposting" element={<JobPosting />} />
+            <Route path="/jobs/*" element={<CardList />} />
+          </Routes>
+        </Router>
       </UserProvider>
-
-      
-
     </div>
   );
 }

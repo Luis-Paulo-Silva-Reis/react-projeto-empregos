@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -39,15 +39,10 @@ const LoginForm = () => {
 
       redirectToProtected();
     } catch (error) {
+      console.error("Erro ao realizar login:", error);
       setError("Email ou senha incorretos");
     }
   };
-
-  const setCookie = (name, value, config) => {
-    Cookies.set(name, value, config);
-  };
-
-  const navigate = useNavigate();
 
   const redirectToProtected = async () => {
     const token = getCookie(TOKEN_COOKIE_NAME);
@@ -78,6 +73,12 @@ const LoginForm = () => {
   const getCookie = (name) => {
     return Cookies.get(name);
   };
+
+  const setCookie = (name, value, config) => {
+    Cookies.set(name, value, config);
+  };
+
+  const navigate = useNavigate();
 
   return (
     <div>

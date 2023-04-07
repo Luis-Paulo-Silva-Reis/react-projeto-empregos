@@ -25,7 +25,7 @@ const ProtectedPage = () => {
       }
     };
     fetchProtectedData();
-  }, []);
+  }, [user]);
 
   const handleLogout = () => {
     Cookies.remove("Authorization");
