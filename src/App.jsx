@@ -8,6 +8,7 @@ import LoginForm from "./components/Form_login";
 import JobPosting from './components/JobPosting'
 import CardList from "./components/CardList";
 
+
 function App() {
   return (
     <div className="App">
@@ -19,9 +20,12 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/jobsposting" element={<JobPosting />} />
           <Route path="/jobs/*" element={<CardList />} />
-
+    
         </Routes>
       </Router>
+
+      
+
     </div>
   );
 }

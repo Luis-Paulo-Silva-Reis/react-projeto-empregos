@@ -3,6 +3,9 @@ import axios from "axios";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
+import ParentComponent from "./ParentComponent"
+
+
 const ProtectedPage = () => {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
@@ -33,6 +36,9 @@ const ProtectedPage = () => {
   return (
     <div>
       <h1>Protected Page</h1>
+
+      <ParentComponent></ParentComponent>
+
       {data ? <p>{data.message}</p> : <p>Loading...</p>}
       <button onClick={handleLogout}>Logout</button>
       <br />
