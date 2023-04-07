@@ -7,11 +7,13 @@ import UserForm from "./components/Form_register";
 import LoginForm from "./components/Form_login";
 import JobPosting from './components/JobPosting'
 import CardList from "./components/CardList";
+import { UserProvider } from "./components/UserContext";
 
 
 function App() {
   return (
     <div className="App">
+      <UserProvider>
       <Router>
         <Routes>
           <Route path="/" element={<MainLayoutComponent />} />
@@ -23,6 +25,7 @@ function App() {
     
         </Routes>
       </Router>
+      </UserProvider>
 
       
 

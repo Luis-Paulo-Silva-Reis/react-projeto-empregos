@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import jwt_decode from "jwt-decode";
+import { UserContext } from "./UserContext";
 import "../styles/Form_login.css";
 
 const LoginForm = () => {
@@ -12,6 +14,7 @@ const LoginForm = () => {
   const [error, setError] = useState("");
 
   const { email, password } = formData;
+  const { updateUser } = useContext(UserContext);
 
   const COOKIE_CONFIG = {
     path: "/",
@@ -29,6 +32,11 @@ const LoginForm = () => {
       });
       const token = response.data.token;
       setCookie(TOKEN_COOKIE_NAME, `Bearer ${token}`, COOKIE_CONFIG);
+
+      // Decodificar o token e atualizar o contexto do usuário
+      const decodedUser = jwt_decode(token);
+      updateUser(decodedUser);
+
       redirectToProtected();
     } catch (error) {
       setError("Email ou senha incorretos");
