@@ -35,7 +35,7 @@ class ParentComponent extends Component {
       <div>
         <h1>Perfil do Usuário</h1>
         {this.state.userData ? (
-          <UserProfile userData={this.state.userData} />
+          <UserProfile />
         ) : (
           <p>Carregando dados do usuário...</p>
         )}
