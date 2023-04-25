@@ -16,7 +16,7 @@ function UserForm() {
       password,
     };
 
-    fetch("http://34.232.202.87:3000/register", {
+    fetch("http://3.88.66.225:8080/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -13,7 +13,7 @@ const JobPosting = () => {
     try {
       const token = Cookies.get("Authorization"); // Obtenha o token dos cookies ou localStorage
       const response = await axios.post(
-        "http://34.232.202.87:3000/jobsposting",
+        "http://3.88.66.225:8080/jobsposting",
         { titulo, descricao },
         {
           headers: {

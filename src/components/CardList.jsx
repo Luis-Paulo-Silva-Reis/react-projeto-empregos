@@ -12,7 +12,7 @@ const CardList = () => {
     setPage,
     isLoading,
     error,
-  } = useFetch("http://34.232.202.87:3000/jobs", 1, {
+  } = useFetch("http://3.88.66.225:8080/jobs", 1, {
     retries: 3,
     retryDelay: 1000,
   });

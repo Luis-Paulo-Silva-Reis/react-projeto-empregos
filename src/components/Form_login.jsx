@@ -26,7 +26,7 @@ const LoginForm = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://34.232.202.87:3000/auth", {
+      const response = await axios.post("http://3.88.66.225:8080/auth", {
         email,
         password,
       });
@@ -51,7 +51,7 @@ const LoginForm = () => {
     };
     try {
       const response = await axios.get(
-        "http://34.232.202.87:3000/protected",
+        "http://3.88.66.225:8080/protected",
         config
       );
       // handle response and redirect to protected route
