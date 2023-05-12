@@ -16,7 +16,7 @@ function UserForm() {
       password,
     };
 
-    fetch("http://talentsync.click:8080/register", {
+    fetch("https://talentsync.click:8080/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -26,7 +26,7 @@ const LoginForm = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://talentsync.click:8080/auth", {
+      const response = await axios.post("https://talentsync.click:8080/auth", {
         email,
         password,
       });
@@ -51,7 +51,7 @@ const LoginForm = () => {
     };
     try {
       const response = await axios.get(
-        "http://talentsync.click:8080/protected",
+        "https://talentsync.click:8080/protected",
         config
       );
       // handle response and redirect to protected route

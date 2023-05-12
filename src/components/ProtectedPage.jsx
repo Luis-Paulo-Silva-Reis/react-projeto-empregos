@@ -18,7 +18,7 @@ const ProtectedPage = () => {
             Authorization: token,
           },
         });
-        const response = await api.get("http://talentsync.click:8080/protected");
+        const response = await api.get("https://talentsync.click:8080/protected");
         setData(response.data);
       } catch (error) {
         console.error(error);

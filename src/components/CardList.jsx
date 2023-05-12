@@ -12,7 +12,7 @@ const CardList = () => {
     setPage,
     isLoading,
     error,
-  } = useFetch("http://talentsync.click:8080/jobs", 1, {
+  } = useFetch("https://talentsync.click:8080/jobs", 1, {
     retries: 3,
     retryDelay: 1000,
   });

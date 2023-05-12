@@ -13,7 +13,7 @@ const JobPosting = () => {
     try {
       const token = Cookies.get("Authorization"); // Obtenha o token dos cookies ou localStorage
       const response = await axios.post(
-        "http://talentsync.click:8080/jobsposting",
+        "https://talentsync.click:8080/jobsposting",
         { titulo, descricao },
         {
           headers: {

@@ -7,7 +7,7 @@ function Login_witout_auth() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://talentsync.click:8080/login", {
+      const response = await fetch("https://talentsync.click:8080/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
