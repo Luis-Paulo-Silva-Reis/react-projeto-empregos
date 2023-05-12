@@ -7,7 +7,7 @@ function Login_witout_auth() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://3.88.66.225:8080/login", {
+      const response = await fetch("http://3.211.162.93:8080/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
