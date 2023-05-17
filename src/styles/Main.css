@@ -1,6 +1,6 @@
 .Main_layout{
-    height: 100%;
+    min-height: 81vh;
     width: 80vw;
-    background-color: gray;
+    background-color: white;
 }
 

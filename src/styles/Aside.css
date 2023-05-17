@@ -1,5 +1,9 @@
 .Aside_laytout {
-  height: 100%;
+  
   width: 20vw;
-  background-color: darkgray;
+  background-color: var(--cor-segunda);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }

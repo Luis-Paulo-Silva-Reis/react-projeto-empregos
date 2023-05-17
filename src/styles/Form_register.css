@@ -1,44 +1,66 @@
-.form_register_layout_main{
-    width: 100%;
-    height: auto;
-    background-color: tomato;
+.form_register_layout_main {
+  display: flex;
+  justify-content: center;
+  align-items: self-start;
+  height: 82vh;
+
 }
 
-.form_register_layout_main h1{
-    display: flex;
-    justify-content: center;
-}
-
-.form_register_layout{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: indigo;
-    height: 100%;
-    width: 100%;
-    flex-direction: column;
-
+.form_register_layout {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  margin: 0 auto;
 }
 
 .form_register_layout h2 {
-    padding: 2rem 0;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
+.form_register_layout label {
+  font-weight: bold;
+}
+
+.form_register_layout input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.form_register_layout button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--cor-primeiro);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.form_register_layout button:hover {
+  background-color: var(--cor-segunda);
+}
 
 .message {
-    margin-top: 16px;
-    padding: 8px;
-    border-radius: 4px;
-    text-align: center;
-    font-weight: bold;
-  }
-  
-  .message.success {
-    background-color: green;
-    color: white;
-  }
-  
-  .message.error {
-    background-color: red;
-    color: white;
-  }
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.message.success {
+  background-color: var(--cor-quarta);
+  color: white;
+}
+
+.message.error {
+  background-color: var(--cor-terceira);
+  color: white;
+}

@@ -1,10 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
 import { UserContext } from "./UserContext";
 import "../styles/Form_login.css";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -80,35 +82,44 @@ const LoginForm = () => {
 
   const navigate = useNavigate();
 
+  const handleGoBack = () => {
+    navigate("/");
+  };
+
   return (
-    <div>
-      <h1>Login</h1>
-      {error && <p>{error}</p>}
-      <form onSubmit={handleLogin} className="form_login">
-        LoginPage
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Senha</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={password}
-            onChange={handleInputChange}
-          />
-        </div>
-        <button type="submit">Entrar</button>
-      </form>
-    </div>
+    <>
+      <Header />
+      <main className="login_main">
+        {error && <p>{error}</p>}
+        <form onSubmit={handleLogin} className="form_login_layout">
+          <h2>Login</h2>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Senha</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={handleInputChange}
+            />
+          </div>
+          <button type="submit">Entrar</button>
+          <br />
+          <button onClick={handleGoBack}>Voltar</button>
+        </form>
+      </main>
+      <Footer />
+    </>
   );
 };
 

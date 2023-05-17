@@ -1,5 +1,16 @@
-*{
+:root {
+  --cor-primeiro: #8500e6;
+  --cor-segunda: #f5560c;
+  --cor-terceira: #fc0d5d;
+  --cor-quarta: #0d3afc;
+  --cor-quinta: #0ce7f5;
+  --cor-texto-padrao: #fff;
+}
+
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
+

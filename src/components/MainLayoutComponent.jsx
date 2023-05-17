@@ -19,7 +19,7 @@ function MainLayoutComponent() {
         <Main></Main>
       </div>
       <Footer />
-      <ToggleForm></ToggleForm>
+     { /* <ToggleForm></ToggleForm>  */ }
     </div>
   );
 }

@@ -1,4 +1,9 @@
 .Footer_layout {
-  min-height: 10vh;
-  background-color: thistle;
+  height: 10vh;
+  background-color: var(--cor-primeiro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+
 }

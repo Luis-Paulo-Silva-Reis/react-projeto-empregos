@@ -11,9 +11,9 @@ function App_header() {
         </div>
         <div>
           <nav>
-            <ul>
+            <ul className="ul">
               <li>
-                <Link to="/register">Registrar</Link>
+                <Link to="/register">sign up</Link>
               </li>
               <li>
                 <Link to="/login">Login</Link>
