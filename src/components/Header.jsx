@@ -7,7 +7,9 @@ function App_header() {
     <>
       <header className="Header_layout">
         <div>
-          <h1>Bem vindo ao TalentSync</h1>
+          <Link to="/">
+            <h1>TalentSync</h1>
+          </Link>
         </div>
         <div>
           <nav>

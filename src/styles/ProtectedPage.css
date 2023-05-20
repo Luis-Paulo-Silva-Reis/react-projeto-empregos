@@ -1,0 +1,150 @@
+/* components/ProtectedPage/ProtectedPage.css */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.loading {
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+}
+
+.logout-btn {
+  background-color: #f44336;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.link-back {
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.job-posting-btn {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+.protected-content {
+  font-size: 24px;
+  color: #333;
+}
+
+.user-info {
+  font-size: 18px;
+  color: #333;
+}
+
+.profile-class-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fade-in 0.5s ease;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+}
+
+.profile-photo{
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.profile-photo img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: zoom-in 0.5s ease;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-section {
+  margin-bottom: 20px;
+  animation: slide-up 0.5s ease;
+}
+
+.profile-section h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.profile-section p {
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.profile-section ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #666;
+}
+
+.profile-section ul li {
+  margin-bottom: 5px;
+  color: #666;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -3,9 +3,6 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import Main from "./Main";
 import Aside from "./Aside";
-import ToggleForm from './FormToggle'
-
-
 import "../styles/Main_Layout_component.css";
 
 function MainLayoutComponent() {

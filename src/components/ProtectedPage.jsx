@@ -1,33 +1,38 @@
-import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { UserContext } from "./UserContext";
+import LogoutButton from "./LogoutButton";
+import PersonalInfo from "./PersonalInfo";
+import ProfessionalHistory from "./ProfessionalHistory";
+import Skills from "./Skills";
+import PreviousProjects from "./PreviousProjects";
+import "../styles/ProtectedPage.css";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const ProtectedPage = () => {
-  const [data, setData] = useState(null);
+  const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
-  const { user } = useContext(UserContext);
 
   useEffect(() => {
     const fetchProtectedData = async () => {
       try {
         const token = Cookies.get("Authorization");
-        const api = axios.create({
+        const response = await axios.get("https://talentsync.click:8080/protected", {
           headers: {
             Authorization: token,
           },
         });
-        const response = await api.get(
-          "https://talentsync.click:8080/protected"
-        );
-        setData(response.data);
+        setUser(response.data);
       } catch (error) {
         console.error(error);
       }
     };
+
     fetchProtectedData();
-  }, [user]);
+  }, [setUser]);
 
   const handleLogout = () => {
     Cookies.remove("Authorization");
@@ -35,29 +40,55 @@ const ProtectedPage = () => {
   };
 
   return (
-    <div>
-      <h1>Protected Page</h1>
-      {data ? <p>{data.message}</p> : <p>Loading...</p>}
-      <button onClick={handleLogout}>Logout</button>
-      <br />
-      <Link to="/">Back to Home</Link>
-      <Outlet />
-
-      <Link to="/jobsposting">
-        <button>Registrar vagas</button>
-      </Link>
-
-      <hr />
-      <h1>Página Protegida</h1>
-      {user ? (
-        <div>
-          <p>Bem-vindo, {user.name}!</p>
-          <p>Seu e-mail é {user.email}.</p>
+    <>
+      <Header />
+      <div className="container">
+        <div className="profile-class-buttons">
+          <LogoutButton handleLogout={handleLogout} />
+          <br />
+          <Link to="/jobsposting">
+            <button className="job-posting-btn">Registrar vagas</button>
+          </Link>
         </div>
-      ) : (
-        <p>Carregando...</p>
-      )}
-    </div>
+        <hr />
+
+        <div className="profile-container">
+          <div className="profile-photo">
+            <img
+              src="https://avatars.githubusercontent.com/u/48827159?v=4"
+              alt="Foto de Perfil"
+            />
+          </div>
+          {user ? (
+            <PersonalInfo
+              name={user.name || "Nome não encontrado"}
+              email={user.email || "Email não encontrado"}
+              location={user.location || "Localização não encontrada"}
+            />
+          ) : (
+            <p className="loading">Carregando...</p>
+          )}
+          <ProfessionalHistory
+            experience={user?.experience || "Experiência não encontrada"}
+            previousCompanies={
+              user?.previousCompanies || "Empresas anteriores não encontradas"
+            }
+          />
+          <Skills
+            skills={user?.skills || ["HTML", "CSS", "JavaScript", "React"]}
+          />
+          <PreviousProjects
+            projects={
+              user?.projects || [
+                "Projeto 1: Website corporativo para XYZ Company",
+                "Projeto 2: Aplicativo mobile para ABC Inc.",
+              ]
+            }
+          />
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 };
 

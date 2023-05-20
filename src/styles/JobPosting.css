@@ -1,8 +1,82 @@
-#jobpostingform{
-    background-color: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.form-center-jobPosting{
+  width: 100vw;
+  height: auto;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+#jobpostingform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: coral;
+  height: 100%;
+  border-radius: 1rem;
+  border: 2px solid var(--cor-segunda);
+}
+
+#jobpostingform div {
+  
+  
+}
+
+#jobpostingform label {
+  display: block;
+  font-weight: bold;
+  padding: 1rem;
+
+}
+
+#jobposting div {
+  
+}
+
+#jobpostingform input[type="text"],
+#jobpostingform textarea {
+  
+  min-width: 80vw;
+  padding: 5px;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+#jobpostingform button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 1rem;
+  width: 80vw;
+}
+
+#jobpostingform button:hover {
+  background-color: #0056b3;
+}
+
+/* JobPosting.css */
+.job-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: red;
+}
+
+.job-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.job-card-description {
+  font-size: 14px;
+  color: #666666;
+}

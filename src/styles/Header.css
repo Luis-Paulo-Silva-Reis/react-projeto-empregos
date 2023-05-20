@@ -7,8 +7,15 @@
   padding: 0 1rem;
 }
 
+.Header_layout a{
+  text-decoration: none;
+}
+
 .Header_layout h1 {
   color: var(--cor-texto-padrao);
+  text-decoration: none;
+  
+  
 }
 
 .ul{
