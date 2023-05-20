@@ -18,7 +18,9 @@ const ProtectedPage = () => {
             Authorization: token,
           },
         });
-        const response = await api.get("https://talentsync.click:8080/protected");
+        const response = await api.get(
+          "https://talentsync.click:8080/protected"
+        );
         setData(response.data);
       } catch (error) {
         console.error(error);
@@ -43,10 +45,6 @@ const ProtectedPage = () => {
 
       <Link to="/jobsposting">
         <button>Registrar vagas</button>
-      </Link>
-
-      <Link to="/jobs">
-        <button>Ver vagas</button>
       </Link>
 
       <hr />

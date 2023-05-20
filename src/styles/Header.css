@@ -7,6 +7,10 @@
   padding: 0 1rem;
 }
 
+.Header_layout h1 {
+  color: var(--cor-texto-padrao);
+}
+
 .ul{
   
   min-width: 15vw;
