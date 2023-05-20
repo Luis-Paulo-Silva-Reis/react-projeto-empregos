@@ -1,7 +1,7 @@
 .Aside_laytout {
   
   width: 20vw;
-  background-color: var(--cor-segunda);
+  background-color: var(--color-Secondary);
   display: flex;
   justify-content: center;
   align-items: center;

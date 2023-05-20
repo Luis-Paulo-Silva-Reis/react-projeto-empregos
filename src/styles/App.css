@@ -1,10 +1,10 @@
 :root {
-  --cor-primeiro: #8500e6;
-  --cor-segunda: #f5560c;
-  --cor-terceira: #fc0d5d;
-  --cor-quarta: #0d3afc;
-  --cor-quinta: #0ce7f5;
-  --cor-texto-padrao: #fff;
+  --color-Primary: #8500e6;
+  --color-Secondary: #f5560c;
+  --color-Tertiary: #fc0d5d;
+  --color-Quaternary: #0d3afc;
+  --color-Quinary: #0ce7f5;
+  --color-texto-padrao: #fff;
 }
 
 * {

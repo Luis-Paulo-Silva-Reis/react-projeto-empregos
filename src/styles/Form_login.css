@@ -39,7 +39,7 @@
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: var(--cor-primeiro);
+  background-color: var(--color-Primary);
   color: white;
   border: none;
   border-radius: 3px;
@@ -47,7 +47,7 @@
 }
 
 .form_login_layout button:hover {
-  background-color: var(--cor-segunda);
+  background-color: var(--color-Secondary);
 }
 
 .message {
@@ -58,12 +58,12 @@
 }
 
 .message.success {
-  background-color: var(--cor-quarta);
+  background-color: var(--color-Quaternary);
   color: white;
 }
 
 .message.error {
-  background-color: var(--cor-terceira);
+  background-color: var(--color-Tertiary);
   color: white;
 }
 

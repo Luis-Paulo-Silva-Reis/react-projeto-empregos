@@ -1,6 +1,6 @@
 .Header_layout {
   min-height: 100%;
-  background-color: var(--cor-primeiro);
+  background-color: var(--color-Primary);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,7 +12,7 @@
 }
 
 .Header_layout h1 {
-  color: var(--cor-texto-padrao);
+  color: var(--color-texto-padrao);
   text-decoration: none;
   
   
@@ -30,15 +30,15 @@
 }
 
 .ul li {
-  border: 3px solid var(--cor-terceira);
+  border: 3px solid var(--color-Tertiary);
   border-radius: 1rem;
   padding: 1rem;
-  background-color: var(--cor-segunda);
+  background-color: var(--color-Secondary);
   color: #fff;
 }
 
 .ul li a{
-  color: var(--cor-texto-padrao);
+  color: var(--color-texto-padrao);
   text-decoration: none;
   font-weight: bold;
   

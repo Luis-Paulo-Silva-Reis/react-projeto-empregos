@@ -15,7 +15,7 @@
   background-color: coral;
   height: 100%;
   border-radius: 1rem;
-  border: 2px solid var(--cor-segunda);
+  border: 2px solid var(--color-Secondary);
 }
 
 #jobpostingform div {

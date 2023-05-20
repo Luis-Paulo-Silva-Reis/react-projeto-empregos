@@ -20,11 +20,14 @@ const ProtectedPage = () => {
     const fetchProtectedData = async () => {
       try {
         const token = Cookies.get("Authorization");
-        const response = await axios.get("https://talentsync.click:8080/protected", {
-          headers: {
-            Authorization: token,
-          },
-        });
+        const response = await axios.get(
+          "https://talentsync.click:8080/protected",
+          {
+            headers: {
+              Authorization: token,
+            },
+          }
+        );
         setUser(response.data);
       } catch (error) {
         console.error(error);
@@ -59,15 +62,13 @@ const ProtectedPage = () => {
               alt="Foto de Perfil"
             />
           </div>
-          {user ? (
-            <PersonalInfo
-              name={user.name || "Nome não encontrado"}
-              email={user.email || "Email não encontrado"}
-              location={user.location || "Localização não encontrada"}
-            />
-          ) : (
-            <p className="loading">Carregando...</p>
-          )}
+
+          <PersonalInfo
+            name={user?.name || "Nome não encontrado"}
+            email={user?.email || "Email não encontrado"}
+            location={user?.location || "Localização não encontrada"}
+          />
+
           <ProfessionalHistory
             experience={user?.experience || "Experiência não encontrada"}
             previousCompanies={

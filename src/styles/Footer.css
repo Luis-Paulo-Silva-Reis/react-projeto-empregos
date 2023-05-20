@@ -1,6 +1,6 @@
 .Footer_layout {
   height: 10vh;
-  background-color: var(--cor-primeiro);
+  background-color: var(--color-Primary);
   display: flex;
   justify-content: center;
   align-items: center;
