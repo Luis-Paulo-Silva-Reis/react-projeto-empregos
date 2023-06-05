@@ -6,18 +6,20 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 const JobPosting = () => {
-  const [titulo, setTitulo] = useState("");
-  const [descricao, setDescricao] = useState("");
-  const [empresa, setEmpresa] = useState("");
-  const [localizacao, setLocalizacao] = useState("");
-  const [tipoEmprego, setTipoEmprego] = useState("");
-  const [salario, setSalario] = useState("");
-  const [requisitosAdicionais, setRequisitosAdicionais] = useState("");
-  const [experienciaMinima, setExperienciaMinima] = useState("");
-  const [dataPublicacao, setDataPublicacao] = useState("");
-  const [dataExpiracao, setDataExpiracao] = useState("");
-  const [linkAplicacao, setLinkAplicacao] = useState("");
-  const [status, setStatus] = useState("");
+  const [formData, setFormData] = useState({
+    titulo: "",
+    descricao: "",
+    empresa: "",
+    localizacao: "",
+    tipoEmprego: "",
+    salario: "",
+    requisitosAdicionais: "",
+    experienciaMinima: "",
+    dataPublicacao: "",
+    dataExpiracao: "",
+    linkAplicacao: "",
+    status: ""
+  });
   const [vagas, setVagas] = useState([]);
 
   const handleSubmit = async (e) => {
@@ -27,20 +29,7 @@ const JobPosting = () => {
       const token = Cookies.get("Authorization"); // Obtenha o token dos cookies ou localStorage
       const response = await axios.post(
         "https://talentsync.click:8080/jobsposting",
-        {
-          titulo,
-          descricao,
-          empresa,
-          localizacao,
-          tipoEmprego,
-          salario,
-          requisitosAdicionais,
-          experienciaMinima,
-          dataPublicacao,
-          dataExpiracao,
-          linkAplicacao,
-          status,
-        },
+        formData,
         {
           headers: {
             Authorization: `${token}`,
@@ -49,20 +38,22 @@ const JobPosting = () => {
       );
 
       // Adicione a nova vaga à lista de vagas
-      setVagas([...vagas, { titulo, descricao, empresa, localizacao, tipoEmprego, salario, requisitosAdicionais, experienciaMinima, dataPublicacao, dataExpiracao, linkAplicacao, status }]);
+      setVagas([...vagas, formData]);
 
-      setTitulo("");
-      setDescricao("");
-      setEmpresa("");
-      setLocalizacao("");
-      setTipoEmprego("");
-      setSalario("");
-      setRequisitosAdicionais("");
-      setExperienciaMinima("");
-      setDataPublicacao("");
-      setDataExpiracao("");
-      setLinkAplicacao("");
-      setStatus("");
+      setFormData({
+        titulo: "",
+        descricao: "",
+        empresa: "",
+        localizacao: "",
+        tipoEmprego: "",
+        salario: "",
+        requisitosAdicionais: "",
+        experienciaMinima: "",
+        dataPublicacao: "",
+        dataExpiracao: "",
+        linkAplicacao: "",
+        status: ""
+      });
 
       alert("Vaga inserida com sucesso!");
     } catch (error) {
@@ -80,8 +71,8 @@ const JobPosting = () => {
             <input
               type="text"
               id="titulo"
-              value={titulo}
-              onChange={(e) => setTitulo(e.target.value)}
+              value={formData.titulo}
+              onChange={(e) => setFormData({ ...formData, titulo: e.target.value })}
               required
             />
           </div>
@@ -89,8 +80,8 @@ const JobPosting = () => {
             <label htmlFor="descricao">Descrição:</label>
             <textarea
               id="descricao"
-              value={descricao}
-              onChange={(e) => setDescricao(e.target.value)}
+              value={formData.descricao}
+              onChange={(e) => setFormData({ ...formData, descricao: e.target.value })}
               required
             ></textarea>
           </div>
@@ -99,8 +90,8 @@ const JobPosting = () => {
             <input
               type="text"
               id="empresa"
-              value={empresa}
-              onChange={(e) => setEmpresa(e.target.value)}
+              value={formData.empresa}
+              onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
               required
             />
           </div>
@@ -109,8 +100,8 @@ const JobPosting = () => {
             <input
               type="text"
               id="localizacao"
-              value={localizacao}
-              onChange={(e) => setLocalizacao(e.target.value)}
+              value={formData.localizacao}
+              onChange={(e) => setFormData({ ...formData, localizacao: e.target.value })}
               required
             />
           </div>
@@ -119,8 +110,8 @@ const JobPosting = () => {
             <input
               type="text"
               id="tipoEmprego"
-              value={tipoEmprego}
-              onChange={(e) => setTipoEmprego(e.target.value)}
+              value={formData.tipoEmprego}
+              onChange={(e) => setFormData({ ...formData, tipoEmprego: e.target.value })}
               required
             />
           </div>
@@ -129,8 +120,8 @@ const JobPosting = () => {
             <input
               type="text"
               id="salario"
-              value={salario}
-              onChange={(e) => setSalario(e.target.value)}
+              value={formData.salario}
+              onChange={(e) => setFormData({ ...formData, salario: e.target.value })}
               required
             />
           </div>
@@ -138,8 +129,8 @@ const JobPosting = () => {
             <label htmlFor="requisitosAdicionais">Requisitos Adicionais:</label>
             <textarea
               id="requisitosAdicionais"
-              value={requisitosAdicionais}
-              onChange={(e) => setRequisitosAdicionais(e.target.value)}
+              value={formData.requisitosAdicionais}
+              onChange={(e) => setFormData({ ...formData, requisitosAdicionais: e.target.value })}
               required
             ></textarea>
           </div>
@@ -148,8 +139,8 @@ const JobPosting = () => {
             <input
               type="number"
               id="experienciaMinima"
-              value={experienciaMinima}
-              onChange={(e) => setExperienciaMinima(e.target.value)}
+              value={formData.experienciaMinima}
+              onChange={(e) => setFormData({ ...formData, experienciaMinima: e.target.value })}
               required
             />
           </div>
@@ -158,8 +149,8 @@ const JobPosting = () => {
             <input
               type="date"
               id="dataPublicacao"
-              value={dataPublicacao}
-              onChange={(e) => setDataPublicacao(e.target.value)}
+              value={formData.dataPublicacao}
+              onChange={(e) => setFormData({ ...formData, dataPublicacao: e.target.value })}
               required
             />
           </div>
@@ -168,8 +159,8 @@ const JobPosting = () => {
             <input
               type="date"
               id="dataExpiracao"
-              value={dataExpiracao}
-              onChange={(e) => setDataExpiracao(e.target.value)}
+              value={formData.dataExpiracao}
+              onChange={(e) => setFormData({ ...formData, dataExpiracao: e.target.value })}
               required
             />
           </div>
@@ -178,8 +169,8 @@ const JobPosting = () => {
             <input
               type="text"
               id="linkAplicacao"
-              value={linkAplicacao}
-              onChange={(e) => setLinkAplicacao(e.target.value)}
+              value={formData.linkAplicacao}
+              onChange={(e) => setFormData({ ...formData, linkAplicacao: e.target.value })}
               required
             />
           </div>
@@ -188,8 +179,8 @@ const JobPosting = () => {
             <input
               type="text"
               id="status"
-              value={status}
-              onChange={(e) => setStatus(e.target.value)}
+              value={formData.status}
+              onChange={(e) => setFormData({ ...formData, status: e.target.value })}
               required
             />
           </div>

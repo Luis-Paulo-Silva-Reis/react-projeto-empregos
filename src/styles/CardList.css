@@ -1,34 +1,41 @@
+.card-list{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
 .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    padding: 0;
-  }
-  
-  .button {
-    background-color: #007BFF;
-    color: white;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 10px;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  
-  .button:hover {
-    background-color: #0056B3;
-  }
-  
-  .activeButton {
-    background-color: #0056B3;
-    color: white;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 10px;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.button {
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.activeButton {
+  background-color: #0056b3;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
