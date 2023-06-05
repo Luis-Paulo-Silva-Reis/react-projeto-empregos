@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 
 function UserForm() {
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

@@ -1,7 +1,7 @@
 function App_nav() {
   return (
     <>
-      <nav>nav</nav>
+      <nav>Nav In development</nav>
     </>
   );
 }

@@ -1,72 +1,49 @@
+/* Card.css */
+ 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
 .card {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: calc(33.33% - 20px);
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin-bottom: 20px;
-  transition: transform 0.3s ease-in-out;
-  margin: 1rem;
-  border: 1px solid var(--color-Tertiary);
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
-
-h3 {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333333;
+.card h3 {
+  font-size: 18px;
   margin-bottom: 10px;
 }
 
-p {
+.card p {
+  font-size: 14px;
   margin-bottom: 5px;
 }
 
-p:first-child {
-  font-weight: bold;
-}
-
-.company-info {
-  margin-top: 20px;
-  border-top: 1px solid #eeeeee;
-  padding-top: 10px;
-}
-
-.location {
-  display: flex;
-  align-items: center;
-  color: #888888;
-}
-
-.location-icon {
-  margin-right: 5px;
-}
-
-.salary {
-  font-weight: bold;
-  color: #007bff;
-}
-
-.additional-requirements {
-  margin-top: 10px;
-}
-
-.experience {
-  color: #888888;
-}
-
-.date {
-  color: #888888;
-}
-
-.application-link {
-  margin-top: 10px;
+.company-info p {
+  font-size: 14px;
+  margin-bottom: 5px;
 }
 
 .status {
-  margin-top: 10px;
-  color: #28a745;
   font-weight: bold;
+}
+
+/* Optional: Add styles for different status values */
+.status.completed {
+  color: green;
+}
+
+.status.pending {
+  color: orange;
+}
+
+.status.failed {
+  color: red;
 }

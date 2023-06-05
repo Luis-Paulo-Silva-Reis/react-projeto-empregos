@@ -1,7 +1,7 @@
 function App_article() {
   return (
     <>
-      <article>article</article>
+      <article>article In development</article>
     </>
   );
 }

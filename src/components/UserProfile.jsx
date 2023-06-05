@@ -3,7 +3,7 @@ import { UserContext } from "./UserContext";
 import Cookies from "js-cookie";
 const UserProfile = ({ userData }) => {
   
-  const { user } = useContext(UserContext);
+  const { user } = UserContext(UserContext);
 
   return (
     <div className="user-profile">
