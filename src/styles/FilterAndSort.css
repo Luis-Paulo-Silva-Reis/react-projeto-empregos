@@ -1,0 +1,29 @@
+.FilterAndSort {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    padding: 1rem;
+    background-color: gray;
+}
+
+.FilterAndSort label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.FilterAndSort input[type="text"],
+.FilterAndSort select {
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.FilterAndSort input[type="text"] {
+  width: 200px;
+}
+
+.FilterAndSort select {
+  width: 150px;
+}

@@ -1,9 +1,8 @@
 import axios from "axios";
 import React, { useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import { UserContext } from "./UserContext";
-import LogoutButton from "./LogoutButton";
 import PersonalInfo from "./PersonalInfo";
 import ProfessionalHistory from "./ProfessionalHistory";
 import Skills from "./Skills";
@@ -14,7 +13,6 @@ import Footer from "./Footer";
 
 const ProtectedPage = () => {
   const { user, setUser } = useContext(UserContext);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProtectedData = async () => {
@@ -37,17 +35,11 @@ const ProtectedPage = () => {
     fetchProtectedData();
   }, [setUser]);
 
-  const handleLogout = () => {
-    Cookies.remove("Authorization");
-    navigate("/");
-  };
-
   return (
     <>
       <Header />
       <div className="container">
         <div className="profile-class-buttons">
-          <LogoutButton handleLogout={handleLogout} />
           <br />
           <Link to="/jobsposting">
             <button className="job-posting-btn">Registrar vagas</button>

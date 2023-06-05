@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/FilterAndSort.css";
 
 const FilterAndSort = ({ data, onFilterAndSort }) => {
   const [filterText, setFilterText] = useState("");
@@ -46,9 +47,9 @@ const FilterAndSort = ({ data, onFilterAndSort }) => {
   };
 
   return (
-    <div>
+    <div className="FilterAndSort">
       <label>
-        Filtro:
+        Filtro: 
         <input
           type="text"
           value={filterText}
@@ -56,7 +57,7 @@ const FilterAndSort = ({ data, onFilterAndSort }) => {
         />
       </label>
       <label>
-        Ordenar por título:
+        Ordenar por título: 
         <select value={sortType} onChange={handleSortTypeChange}>
           <option value="asc">A-Z</option>
           <option value="desc">Z-A</option>

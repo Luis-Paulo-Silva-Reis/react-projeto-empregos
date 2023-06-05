@@ -15,8 +15,9 @@
 .logout-btn {
   background-color: #f44336;
   color: #fff;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   border: none;
+  font-weight: bold;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
@@ -58,7 +59,7 @@ hr {
 
 .profile-class-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .profile-container {

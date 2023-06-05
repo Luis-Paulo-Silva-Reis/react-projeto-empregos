@@ -7,26 +7,22 @@
   padding: 0 1rem;
 }
 
-.Header_layout a{
+.Header_layout a {
   text-decoration: none;
 }
 
 .Header_layout h1 {
   color: var(--color-texto-padrao);
   text-decoration: none;
-  
-  
 }
 
-.ul{
-  
+.ul {
   min-width: 15vw;
   display: flex;
   justify-content: space-between;
   list-style: none;
   padding: 1rem;
   height: 100%;
-
 }
 
 .ul li {
@@ -37,9 +33,12 @@
   color: #fff;
 }
 
-.ul li a{
+.ul li a {
   color: var(--color-texto-padrao);
   text-decoration: none;
   font-weight: bold;
-  
+}
+
+.disabled{
+  display: none;
 }

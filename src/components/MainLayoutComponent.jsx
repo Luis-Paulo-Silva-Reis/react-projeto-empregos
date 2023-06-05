@@ -10,13 +10,15 @@ function MainLayoutComponent() {
     <div className="main">
       <Header />
       <div className="Main_layout_area">
+        {/*
         <Aside>
           <Nav />
         </Aside>
+          */}
         <Main></Main>
       </div>
       <Footer />
-     { /* <ToggleForm></ToggleForm>  */ }
+      {/* <ToggleForm></ToggleForm>  */}
     </div>
   );
 }
