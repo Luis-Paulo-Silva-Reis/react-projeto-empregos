@@ -1,0 +1,48 @@
+/* Card.css */
+
+.card-detail {
+    width: auto;
+    background-color: var(--color-Secondary);
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin: 1rem;
+    min-height: 80vh;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .card-detail h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .card-detail p {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .company-info p {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .status {
+    font-weight: bold;
+  }
+  
+  /* Optional: Add styles for different status values */
+  .status.completed {
+    color: green;
+  }
+  
+  .status.pending {
+    color: orange;
+  }
+  
+  .status.failed {
+    color: red;
+  }
+  

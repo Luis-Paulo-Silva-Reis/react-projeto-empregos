@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import useFetch from "./UseFetch";
 import Card from "./Card";
 import FilterAndSort from "./FilterAndSort";
 import Paginate from "react-paginate";
 import "../styles/CardList.css";
-import { Link } from "react-router-dom";
 
 const CardList = () => {
+  const navigate = useNavigate();
+
   const {
     data: originalData,
     page,
@@ -38,6 +40,10 @@ const CardList = () => {
     setFilteredData(updatedData);
   };
 
+  const handleCardClick = (itemId) => {
+    navigate(`/jobs/${itemId}`);
+  };
+
   if (error) {
     return <div>Erro ao buscar dados: {error}</div>;
   }
@@ -54,9 +60,9 @@ const CardList = () => {
       />
       <div className="card-list">
         {paginatedData.map((item, index) => (
-          <Link to={`/jobs/${item.id}`} key={index}>
+          <div key={index} onClick={() => handleCardClick(item.id)}>
             <Card item={item} />
-          </Link>
+          </div>
         ))}
       </div>
       {isLoading && <div>Carregando...</div>}

@@ -165,9 +165,9 @@ const JobPosting = () => {
             />
           </div>
           <div>
-            <label htmlFor="linkAplicacao">Link de Aplicação:</label>
+            <label htmlFor="linkAplicacao">Email para Aplicação:</label>
             <input
-              type="text"
+              type="email"
               id="linkAplicacao"
               value={formData.linkAplicacao}
               onChange={(e) => setFormData({ ...formData, linkAplicacao: e.target.value })}

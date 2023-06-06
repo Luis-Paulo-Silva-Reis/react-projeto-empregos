@@ -1,82 +1,58 @@
-.form-center-jobPosting{
-  width: 100vw;
-  height: auto;
-  min-height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* JobPosting.css */
 
-#jobpostingform {
+.form-center-jobPosting {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: coral;
-  height: 100%;
-  border-radius: 1rem;
-  border: 2px solid var(--color-Secondary);
+  margin-top: 20px;
 }
 
-#jobpostingform div {
-  
-  
-}
-
-#jobpostingform label {
-  display: block;
-  font-weight: bold;
-  padding: 1rem;
-
-}
-
-#jobposting div {
-  
-}
-
-#jobpostingform input[type="text"],
-#jobpostingform textarea {
-  
-  min-width: 80vw;
-  padding: 5px;
+form {
+  width: 400px;
   border: 1px solid #ccc;
-  padding: 1rem;
-  margin: 1rem;
-}
-
-#jobpostingform button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  margin: 1rem;
-  width: 80vw;
-}
-
-#jobpostingform button:hover {
-  background-color: #0056b3;
-}
-
-/* JobPosting.css */
-.job-card {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
   padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: red;
+  border-radius: 5px;
 }
 
-.job-card-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
+form > div {
+  margin-bottom: 15px;
 }
 
-.job-card-description {
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.error {
+  color: red;
   font-size: 14px;
-  color: #666666;
+  margin-top: 5px;
 }
