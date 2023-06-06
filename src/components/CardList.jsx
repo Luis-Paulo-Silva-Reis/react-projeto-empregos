@@ -4,6 +4,7 @@ import Card from "./Card";
 import FilterAndSort from "./FilterAndSort";
 import Paginate from "react-paginate";
 import "../styles/CardList.css";
+import { Link } from "react-router-dom";
 
 const CardList = () => {
   const {
@@ -53,7 +54,9 @@ const CardList = () => {
       />
       <div className="card-list">
         {paginatedData.map((item, index) => (
-          <Card key={index} item={item} index={index} />
+          <Link to={`/jobs/${item.id}`} key={index}>
+            <Card item={item} />
+          </Link>
         ))}
       </div>
       {isLoading && <div>Carregando...</div>}

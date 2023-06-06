@@ -1,9 +1,8 @@
 import Header from "./Header";
-import Nav from "./Nav";
 import Footer from "./Footer";
 import Main from "./Main";
-import Aside from "./Aside";
 import "../styles/Main_Layout_component.css";
+import CardDetail from "./CardDetail";
 
 function MainLayoutComponent() {
   return (
@@ -16,6 +15,7 @@ function MainLayoutComponent() {
         </Aside>
           */}
         <Main></Main>
+       
       </div>
       <Footer />
       {/* <ToggleForm></ToggleForm>  */}

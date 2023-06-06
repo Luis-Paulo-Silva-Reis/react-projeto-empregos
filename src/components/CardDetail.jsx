@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/Card.css";
+import "../styles/CardDetail.css";
 
-const Card = ({ item }) => {
+const CardDetail = ({ item }) => {
   const {
     titulo,
     descricao,
@@ -58,4 +58,4 @@ const Card = ({ item }) => {
   );
 };
 
-export default Card;
+export default CardDetail;
