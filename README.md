@@ -1,5 +1,7 @@
 # TalentSync - Uma nova abordagem na busca por emprego
 
+https://react-projeto-empregos.vercel.app/
+
 ## Visão Geral
 
 O TalentSync é um projeto inovador que propõe uma abordagem diferenciada na busca por emprego. Enquanto existem várias opções disponíveis, estamos confiantes de que podemos oferecer uma experiência mais simples e intuitiva.
