@@ -94,7 +94,7 @@ const CardDetail = () => {
         </p>
         <p className="application-link">
           <a href={`mailto:${link_aplicacao}`}>
-            <strong>Email para Aplicação:</strong>
+            <strong>Email para Aplicação: {`${link_aplicacao}`}</strong>
           </a>
         </p>
         <p className="status">
