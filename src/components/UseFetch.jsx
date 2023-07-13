@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
+import { useState, useEffect, useRef } from "react";
+import axios from "axios";
 
 const useFetch = (url, initialPage, options = {}) => {
   const { retries = 3, retryDelay = 1000, useCache = true } = options;
@@ -16,10 +16,10 @@ const useFetch = (url, initialPage, options = {}) => {
     setError(null);
 
     const cacheKey = `cache_${url}`;
-    console.log('Cache key:', cacheKey);
+    console.log("Cache key:", cacheKey);
 
     const cachedData = useCache ? localStorage.getItem(cacheKey) : null;
-    console.log('Cached data:', cachedData);
+    console.log("Cached data:", cachedData);
 
     if (cachedData) {
       const parsedData = JSON.parse(cachedData);
@@ -28,11 +28,11 @@ const useFetch = (url, initialPage, options = {}) => {
     } else {
       try {
         const response = await axios.get(url);
-        console.log('API response:', response.data);
+        console.log("API response:", response.data);
         if (Array.isArray(response.data)) {
           setData(response.data);
         } else {
-          console.error('Unexpected API response:', response.data);
+          console.error("Unexpected API response:", response.data);
         }
         retryCount.current = 0;
 
@@ -40,7 +40,7 @@ const useFetch = (url, initialPage, options = {}) => {
           localStorage.setItem(cacheKey, JSON.stringify(response.data));
         }
       } catch (error) {
-        console.error('Error fetching data:', error.message);
+        console.error("Error fetching data:", error.message);
         if (retryCount.current < retries) {
           retryCount.current++;
           setTimeout(fetchData, retryDelay);

@@ -2,7 +2,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Main from "./Main";
 import "../styles/Main_Layout_component.css";
-import CardDetail from "./CardDetail";
+
 
 function MainLayoutComponent() {
   return (
@@ -18,7 +18,6 @@ function MainLayoutComponent() {
        
       </div>
       <Footer />
-      {/* <ToggleForm></ToggleForm>  */}
     </div>
   );
 }

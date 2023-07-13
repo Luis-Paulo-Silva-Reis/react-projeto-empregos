@@ -1,8 +1,9 @@
 .form_register_layout_main {
   display: flex;
   justify-content: center;
-  align-items: self-start;
-  height: 82vh;
+  align-items: flex-start;
+  height: 80vh; 
+  width: 100%;
 
 }
 
